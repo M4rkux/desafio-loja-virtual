@@ -20,6 +20,7 @@ class RotaController {
         if(!isset($_GET["param"])){
             http_response_code(404);
             echo "Recurso não encontrado";
+            exit;
         } else {
             $url = $_GET["param"];
             $partes = explode("/", $url);

@@ -12,7 +12,7 @@ class ProdutoController {
     protected function verificarAcao() {
         switch($_SERVER["REQUEST_METHOD"]){
             case "GET":
-                if(isset($_GET["id"])){
+                if(isset($_GET["id"]) && is_numeric($_GET["id"])){
                     $this->porId($_GET["id"]);
                 } else {
                     $this->listar();
@@ -25,7 +25,10 @@ class ProdutoController {
                 $this->atualizar();
                 break;
             case "DELETE":
-                $this->remover();
+                $this->deletar();
+                break;
+            case "OPTIONS":
+                echo "Allow: GET, POST, PUT, DELETE, OPTIONS";
                 break;
             default:
                 http_response_code(405);
@@ -45,7 +48,7 @@ class ProdutoController {
 
     protected function porId($id) {
         $aluno = $this->dao->porId($id);
-        if(count($aluno) == 0){
+        if(!$aluno){
             http_response_code(404);
         } else {
             http_response_code(200);
@@ -84,12 +87,12 @@ class ProdutoController {
         echo json_encode($retorno);
     }
 
-    protected function remover() {
+    protected function deletar() {
         if(!isset($_GET["id"])){
             http_response_code(400);
             $retorno = false;
         } else {
-            $retorno= $this->dao->remover($_GET["id"]);
+            $retorno= $this->dao->deletar($_GET["id"]);
             if(!$retorno){
                 http_response_code(500);
             } else {
