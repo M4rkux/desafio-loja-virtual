@@ -224,15 +224,15 @@ body {
         width: 600px;
         z-index: 4;
         will-change: transform;
-        transition: transform 0.25s ease-in, opacity 0s 0.25s;
+        transition: transform 0.25s ease-in, visibility 0s 0.25s;
         border-radius: 4px;
         background-color: #fff;
         padding: 15px;
         top: -200px;
         margin-top: 30px;
-        left: 0px;
-        margin-left: 150px;
-        opacity: 0;
+        left: 50%;
+        margin-left: -300px;
+        visibility: hidden;
         .header {
             padding: 10px;
             margin-bottom: 30px;
@@ -240,7 +240,7 @@ body {
 
         &.show {
             transition: transform 0.25s ease-in;
-            opacity: 1;
+            visibility: visible;
             transform: translateY(200px);
         }
     }
@@ -254,14 +254,14 @@ body {
         will-change: transform;
         top: 0px;
         left: 100vw;
-        transition: transform 0.25s ease-in, opacity 0s 0.25s;
+        transition: transform 0.25s ease-in, visibility 0s 0.25s;
         background-color: #fff;
         border-top-left-radius: 4px;
         border-bottom-left-radius: 4px;
-        opacity: 0;
+        visibility: hidden;
         &.show {
             transition: transform 0.25s ease-in;
-            opacity: 1;
+            visibility: visible;
             transform: translateX(-630px);
         }
     }
