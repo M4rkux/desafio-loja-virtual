@@ -11,7 +11,7 @@ Abra o terminal e navegue até a pasta *backend*
 ```shell
 cd backend
 ```
-Para compilar, instalar as dependências e subir o servidor PHP e o de MySql você precisa rodar o comando docker-compose
+Inicie o docker-compose para instalar as dependências e subir o servidores de PHP e de MySql.
 ```shell
 sudo docker-compose up
 ```
@@ -22,7 +22,7 @@ PHP: http://localhost:8100
 MySql: http://localhost:9600
 
 ### Frontend
-Abra o terminal e navegue até a pasta *backend*
+Abra o terminal e navegue até a pasta *frontend*
 ```shell
 cd frontend
 ```
